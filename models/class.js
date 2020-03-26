@@ -11,4 +11,4 @@ var classSchema = new mongoose.Schema ({
   ]
 });
 
-module.exports = mongoose.model("class" , classSchema);
+module.exports = mongoose.model("Class" , classSchema);

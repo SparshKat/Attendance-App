@@ -5,4 +5,4 @@ var subjectSchema = new mongoose.Schema({
    code : String , 
 });
 
-module.exports = mongoose.model("Subject" , sunjectSchema);
+module.exports = mongoose.model("Subject" , subjectSchema);

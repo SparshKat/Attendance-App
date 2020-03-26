@@ -1,9 +1,8 @@
 var  mongoose    = require("mongoose");
 
-var movieSchema = new mongoose.Schema ({
+var teacherSchema = new mongoose.Schema ({
   name : String ,
   image : String ,
-  review : String ,
   subjectTaught : [
     {  
         type : mongoose.Schema.Types.ObjectId ,
@@ -12,4 +11,4 @@ var movieSchema = new mongoose.Schema ({
   ]
 });
 
-module.exports = mongoose.model("Movie" , movieSchema);
+module.exports = mongoose.model("Teacher" , teacherSchema);
