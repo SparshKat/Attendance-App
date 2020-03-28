@@ -27,6 +27,41 @@
             "day" : "0" ,
             "week" : "0",
             "attended" : "1"
-        }
+        },
+        {
+            "name" : "Surbhi Sharma" ,
+            "code" : "IT201" ,
+            "day" : "0" ,
+            "week" : "0",
+            "attended" : "1"
+        } ,
+        {
+            "name" : "Surbhi Sharma" ,
+            "code" : "IT201" ,
+            "day" : "0" ,
+            "week" : "0",
+            "attended" : "1"
+        } ,
+        {
+            "name" : "Surbhi Sharma" ,
+            "code" : "IT201" ,
+            "day" : "0" ,
+            "week" : "0",
+            "attended" : "1"
+        } ,
+        {
+            "name" : "Surbhi Sharma" ,
+            "code" : "IT201" ,
+            "day" : "0" ,
+            "week" : "0",
+            "attended" : "1"
+        } ,
+        {
+            "name" : "Surbhi Sharma" ,
+            "code" : "IT201" ,
+            "day" : "0" ,
+            "week" : "0",
+            "attended" : "1"
+        } 
     ] 
 }
