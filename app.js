@@ -8,7 +8,7 @@ var express = require('express'),
     app = express();
 
 //Routes
-var addingStudentRoutes = require('./routes/addingStudents'),
+var addingStudentRoutes = require('./routes/adminAddition'),
     markingAttendanceRoutes = require('./routes/markingAttendance');
 
 // make client connect to mongo service
@@ -25,6 +25,7 @@ mongoose.connection.on('error', (err) => {
 });
 // mongoose.connect("mongodb://localhost:27017/attendance", { useUnifiedTopology: true });
 // MongoClient.connect({ useNewUrlParser: true });
+app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(methodOverride("_method"));
 app.use(express.static(__dirname + '/public'));
@@ -42,8 +43,6 @@ app.use(function (req, res, next) {
 // router.route('/admin/addStudents').get((req,res) => {addingStudentRoutes});
 app.use('/admin/addStudents', addingStudentRoutes);
 app.use('/teacher/attendance', markingAttendanceRoutes);
-
-app.post('/api/student')
 
 app.listen(port, () => {
     console.log("Server runs at 8080");

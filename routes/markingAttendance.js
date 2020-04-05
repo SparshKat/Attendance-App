@@ -5,7 +5,7 @@ var router = express.Router(),
     axios = require('axios');
 var Student = require('../models/student')
 
-    router.get("/admin/addStudents", (req, res) => {
+    router.get("/", (req, res) => {
         // Movie.find({} , (err, allMovies)=>{
         //     if(err){
         //         req.flash("error" , err.message);
