@@ -8,7 +8,8 @@ var express = require('express'),
     app = express();
 
 //Routes
-var addingStudentRoutes = require('./routes/adminAddition'),
+var addingStudentRoutes = require('./routes/adminRoutes'),
+    studentRoutes = require('./routes/studentRoutes'),
     markingAttendanceRoutes = require('./routes/markingAttendance');
 
 // make client connect to mongo service
@@ -42,7 +43,8 @@ app.use(function (req, res, next) {
 //routes
 // router.route('/admin/addStudents').get((req,res) => {addingStudentRoutes});
 app.use('/admin/addStudents', addingStudentRoutes);
-app.use('/teacher/attendance', markingAttendanceRoutes);
+app.use('/attendance/', markingAttendanceRoutes);
+app.use('/student/' , studentRoutes);
 
 app.listen(port, () => {
     console.log("Server runs at 8080");
