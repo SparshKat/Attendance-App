@@ -14,49 +14,39 @@ router.put('/mark', (req, res) => {
         if (error) {
             console.log("Error has occured in request");
             console.log(error);
-            // return res.json(error);
         } else {
             var retrieved = JSON.parse(body);
-            var studentNames = [];
-            console.log
-            retrieved.students.forEach(stu => studentNames.push(stu.name));
+            var ongoingClass = retrieved.classCode;
+            console.log(retrieved.students);
 
-            Class.find({ batchCode: retrieved.code })
-                .populate('studentList')
-                .exec((err, list) => {
-                    if (err) {
-                        console.log("Error has occured in class object");
-                        console.log(err);
-                        // return res.json(err);
-                    }
-                    list[0].studentList.forEach(stu => {
-                        // console.log(stu.name)
-                        if (studentNames.indexOf(stu.name) !== -1) {
-                            console.log(stu._id);
-                            Student.findByIdAndUpdate(stu._id)
-                                .then((foundStudent) => {
-                                    console.log("INSIDE I AM")
-                                    var subject = retrieved.code;
-                                    var attended = 1;
+            retrieved.students.forEach((stud, i) => {
+                // console.log(stud);
+                Student.find({ name: stud.name })
+                    .then(foundStudent => {
+                        if (foundStudent.length != 0) {
+                            // console.log(foundStudent[0]);
+                            foundStudent[0].attendanceID.forEach((el, i) => {
+                                if (el.subject === ongoingClass) {
+                                    // console.log(el);
                                     var day = retrieved.day;
                                     var week = retrieved.week;
-                                    // var month = retrieve
-                                    var newObj = {
-                                        subject,
-                                        attended,
-                                        day,
-                                        week
+                                    var attendanceObj = {
+                                        day ,
+                                        week,
+                                        attended : 1
                                     }
-                                    
-                                    foundStudent.attendanceID.push(newObj);
-                                    console.log(newObj);
-                                    console.log(foundStudent);
-                                    foundStudent.save();
-                                })
-                        } else console.log("ERROR");
+                                    el.attendance.push(attendanceObj);
+                                    foundStudent[0].save();
+                                    console.log(foundStudent[0]);
+                                    // console.log("day -> " + day  + "week -> " + week);
+                                } else {
+                                    console.log("he hasn't opted for the course yet");
+                                }
+                            })
+                        }
                     })
-                });
-
+                    .catch(err => console.log("none found" + err));
+            });
         }
     })
 

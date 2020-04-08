@@ -22,11 +22,10 @@ router.get('/attendance/:student_id' , (req,res) => {
     Student.findById(req.params.student_id)
         .then(stu => {
             console.log("Displaying student attendance details : ");
-            var attendance = [];
-            stu.attendanceID.map((el , i) => {
-                attendance.push(el);
+            stu.attendanceID.forEach((detail , ind) => {
+                console.log(detail.subject+ ": " + detail.attendance.length);
             })
-            res.json(attendance);
+            // res.json(stu);
         })
         .catch(err => {
             console.log("Error has occured");

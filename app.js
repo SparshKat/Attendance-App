@@ -2,13 +2,12 @@ var express = require('express'),
     bodyParser = require('body-parser'),
     mongoose = require('mongoose'),
     methodOverride = require("method-override"),
-    MongoClient = require('mongodb').MongoClient,
     port = process.env.PORT || 8080,
     router = express.Router(),
     app = express();
 
 //Routes
-var addingStudentRoutes = require('./routes/adminRoutes'),
+var adminRoutes = require('./routes/adminRoutes'),
     studentRoutes = require('./routes/studentRoutes'),
     markingAttendanceRoutes = require('./routes/markingAttendance');
 
@@ -41,8 +40,8 @@ app.use(function (req, res, next) {
 })
 
 //routes
-// router.route('/admin/addStudents').get((req,res) => {addingStudentRoutes});
-app.use('/admin/addStudents', addingStudentRoutes);
+// router.route('/admin/addStudents').get((req,res) => {adminRoutes});
+app.use('/admin/', adminRoutes);
 app.use('/attendance/', markingAttendanceRoutes);
 app.use('/student/' , studentRoutes);
 
