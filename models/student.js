@@ -4,17 +4,16 @@ var studentSchema = new mongoose.Schema({
   name: { type: String },
   rollNo: { type: String },
   image: { type: String },
+  subjectsOpted : [{type : String}],
   attendanceID: [
     {
-      subject: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "Subject"
-      },
-      attendance: {
-        attended: { type: Boolean, Default: 0 },
-        day: { type: String },
-        week: { type: String }
-      }
+      subject: { type: String },
+      attendance : [
+        {
+          attended: {type : Boolean},
+          day: { type: String } ,
+          week: { type: String }
+        }]
     }
   ]
 });

@@ -12,12 +12,13 @@ router.get("/all", (req, res) => {
         if (err) {
             console.log(err);
         } else {
+            // console.log(typeof(allStudents[1].attendanceID[0].day))
             res.json(allStudents);
         }
     })
 });
 
-//Adding students to Students class
+//Adding students to Students class via a test json
 router.post('/:branch', (req, res) => {
     // console.log(req.params.branch);
     var branch = req.params.branch;
@@ -54,6 +55,30 @@ router.post('/:branch', (req, res) => {
         })
 })
 
+router.post('/create/stud' , (req,res) =>{
+    
+    // console.log(req.body.attendanceID);
+    var newObj = {
+        name : req.body.name ,
+        rollNo : req.body.rollNo ,
+        image : req.body.image ,
+        subjectsOpted : req.body.subjectsOpted,
+        attendanceID : req.body.attendanceID
+    }
+    // res.json(newObj);
+    Student.create(newObj)
+    .then(stu => {
+        console.log("Student created");
+        console.log(stu);
+        // res.send({message  : "created a student"});
+        res.json(stu);
+    })
+    .catch(err => {
+        console.log("Error has occured");
+        // res.json(err);
+    })
+})
+
 //Display all classes
 router.get('/class', (req, res) => {
     Class.find({}, (err, classes) => {
@@ -65,6 +90,7 @@ router.get('/class', (req, res) => {
     })
 });
 
+//Display classes with given branch name and code
 router.get('/:branch/:code', (req, res) => {
     Class.find({batchCode : req.params.code , branchName : req.params.branch}, (err, classes) => {
         if (err) {
