@@ -1,0 +1,19 @@
+{
+    "classCode" : "IT201",
+    "day" : "1" ,
+    "week" : "1",
+    "students" :[
+        {
+            "name" : "Sparsh Katiyar"
+        },
+        {
+            "name" : "Suarabh Patel"
+        } ,
+        {
+            "name" : "Hardev Goyal"
+        } , 
+        {
+            "name" : "Vibhas Wahi"
+        }
+    ]
+}
