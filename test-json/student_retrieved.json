@@ -2,6 +2,7 @@
     "classCode" : "IT201",
     "day" : "1" ,
     "week" : "1",
+    "branch" : "IT" ,
     "students" :[
         {
             "name" : "Sparsh Katiyar"

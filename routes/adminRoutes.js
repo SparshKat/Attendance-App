@@ -92,12 +92,20 @@ router.get('/class', (req, res) => {
 
 //Display classes with given branch name and code
 router.get('/:branch/:code', (req, res) => {
-    Class.find({batchCode : req.params.code , branchName : req.params.branch}, (err, classes) => {
-        if (err) {
-            console.log(err);
+    let arr = [];
+    Class.find({batchCode : req.params.code , branchName : req.params.branch})
+    .populate('studentList')
+    .exec(function(err , studs){
+        if(err) {
+            res.json(err);
         } else {
-            res.json(classes)
-        };
+            // console.log(studs[0].studentList[0]);
+            studs[0].studentList.forEach((student) => {
+                arr.push(student.name);
+            })
+            var obj = {...[arr]};
+            res.json(obj);
+        }
     })
 });
 

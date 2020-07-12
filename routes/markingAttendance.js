@@ -12,8 +12,8 @@ var router = express.Router(),
 router.put('/mark', (req, res) => {
     request(`http://localhost:3000/student_retrieved.json`, (error, response, body) => {
         if (error) {
-            console.log("Error has occured in request");
             console.log(error);
+            res.json({ message : "Error has occured in request"});
         } else {
             var retrieved = JSON.parse(body);
             var ongoingClass = retrieved.classCode;
@@ -47,6 +47,7 @@ router.put('/mark', (req, res) => {
                     })
                     .catch(err => console.log("none found" + err));
             });
+            res.redirect(`/admin/${retrieved.branch}/${ongoingClass}`)
         }
     })
 
