@@ -101,7 +101,7 @@ router.get('/:branch/:code', (req, res) => {
         } else {
             // console.log(studs[0].studentList[0]);
             studs[0].studentList.forEach((student) => {
-                arr.push(student.name);
+                arr.push({ "name" : student.name});
             })
             var obj = {...[arr]};
             res.json(obj);
