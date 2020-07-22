@@ -19,18 +19,25 @@ router.get('/:student_id', (req, res) => {
 })
 
 router.get('/attendance/:student_id' , (req,res) => {
+    let arr= [];
     Student.findById(req.params.student_id)
         .then(stu => {
             console.log("Displaying student attendance details : ");
             stu.attendanceID.forEach((detail , ind) => {
+                arr.push({
+                    "subject" : detail.subject,
+                    "attendanceNo" : detail.attendance.length
+                })
+                console.log(arr);
                 console.log(detail.subject+ ": " + detail.attendance.length);
             })
-            // res.json(stu);
+            res.json(arr);
         })
         .catch(err => {
             console.log("Error has occured");
-            res.json(err);
+            res.json([]);
         })
+    
 })
 
 module.exports = router;
