@@ -1,20 +1,101 @@
 {
-    "classCode" : "IT201",
-    "day" : "1" ,
-    "week" : "1",
-    "branch" : "IT" ,
-    "students" :[
+    "classCode": "IT201",
+    "day": "1",
+    "week": "1",
+    "branch": "IT",
+    "students": [
         {
-            "name" : "Sparsh Katiyar"
+            "name": "Abhay_Deol"
         },
         {
-            "name" : "Suarabh Patel"
-        } ,
+            "name": "Abhishek_Bachchan"
+        },
         {
-            "name" : "Hardev Goyal"
-        } , 
+            "name": "Aftab_Shivdasani"
+        },
         {
-            "name" : "Vibhas Wahi"
+            "name": "Aishwarya_Rai"
+        },
+        {
+            "name": "Ajay_Devgn"
+        },
+        {
+            "name": "Akshaye_Khanna"
+        },
+        {
+            "name": "Akshay_Kumar"
+        },
+        {
+            "name": "Alia_Bhatt"
+        },
+        {
+            "name": "Ameesha_Patel"
+        },
+        {
+            "name": "Amitabh_Bachchan"
+        },
+        {
+            "name": "Amrita_Rao"
+        },
+        {
+            "name": "Amy_Jackson"
+        },
+        {
+            "name": "Anil_Kapoor"
+        },
+        {
+            "name": "Anushka_Sharma"
+        },
+        {
+            "name": "Anushka_Shetty"
+        },
+        {
+            "name": "Arjun_Kapoor"
+        },
+        {
+            "name": "Arjun_Rampal"
+        },
+        {
+            "name": "Arshad_Warsi"
+        },
+        {
+            "name": "Asin"
+        },
+        {
+            "name": "Ayushmann_Khurrana"
+        },
+        {
+            "name": "Bhumi_Pednekar"
+        },
+        {
+            "name": "Bipasha_Basu"
+        },
+        {
+            "name": "Bobby_Deol"
+        },
+        {
+            "name": "Deepika_Padukone"
+        },
+        {
+            "name": "Disha_Patani"
+        },
+        {
+            "name": "Emraan_Hashmi"
+        },
+        {
+            "name": "Esha_Gupta"
+        },
+        {
+            "name": "Farhan_Akhtar"
+        },
+        {
+            "name": "Govinda"
+        },
+        {
+            "name": "Hrithik_Roshan"
+        },
+        {
+            "name": "Huma_Qureshi"
         }
     ]
 }

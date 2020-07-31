@@ -10,7 +10,9 @@ module.exports = function(passport) {
         res.send("We are home");
     })
     router.get('/error', middleware.isLoggedIn, (req, res) => {
-        res.json("ERROR");
+        res.json({
+            "message" : "Error"
+        });
         // res.json(req.session);
     });
 
@@ -21,29 +23,14 @@ module.exports = function(passport) {
 
    
     router.get('/here', middleware.isLoggedIn, (req, res) => {
-        Order.findAll()
-        .then(obj => {
-            res.json([obj[0]]);
-        })
-        .catch(err => {
-            console.log("error in orders");
-            res.json(Error(404));
-        })
-       
+        res.json({
+            "message" : "Success"
+        });
     })
     
     router.post('/', passport.authenticate('local' , {
-        // successRedirect : '/ohmy/here',
+        successRedirect : '/ohmy/here',
         failureRedirect : '/ohmy/error'
-    }),(req,res) => {
-        Order.findAll()
-        .then(obj => {
-            res.json([obj[0]]);
-        })
-        .catch(err => {
-            console.log("error in orders");
-            res.json(Error(404));
-        })} 
-    )
+    }))
     return router;
 }
