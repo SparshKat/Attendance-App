@@ -57,5 +57,5 @@ app.use('/student/', studentRoutes);
 app.use('/auth/', authUser);
 
 app.listen(port, () => {
-    console.log("Server runs at 8080");
+    console.log(`Server runs at : ${port}`);
 })
