@@ -4,11 +4,9 @@ var express = require('express'),
     methodOverride = require("method-override"),
     port = process.env.PORT || 8080,
     mongoURL = 
-    'mongodb://localhost:27017/AttendanceApp',
-    // "mongodb://<dbuser>:<dbpassword>@ds031915.mlab.com:31915/attendance-app",
+    // 'mongodb://localhost:27017/AttendanceApp',
+    'mongodb://sparsh:katiyar87396@ds031915.mlab.com:31915/attendance-app',
     passport = require('passport'),
-    cors = require('cors'),
-    router = express.Router(),
     app = express();
 
 require('./passport')(passport)
@@ -28,13 +26,12 @@ mongoose.connection.on('connected', () => console.log('connected to database :)'
 //on error
 mongoose.connection.on('error', (err) => {
     if (err) {
-        console.log('error is ' + err + config.SECRETS.database.url);
+        console.log('error is ' + err );
     }
 });
 // mongoose.connect("mongodb://localhost:27017/attendance", { useUnifiedTopology: true });
 // MongoClient.connect({ useNewUrlParser: true });
 app.use(bodyParser.json());
-// app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(methodOverride("_method"));
 app.use(express.static(__dirname + '/public'));

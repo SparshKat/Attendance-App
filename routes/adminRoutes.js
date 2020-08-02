@@ -77,6 +77,7 @@ router.post('/:branch', (req, res) => {
                     clas[0].studentList = [...arr];
                     console.log(clas[0]);
                     clas[0].save();
+                    res.json(clas[0]);
                 }, 5000)
 
             })
