@@ -127,7 +127,7 @@ router.get('/class', (req, res) => {
 //Display classes with given branch name and code
 router.get('/:branch/:code', (req, res) => {
     let arr = [];
-    Class.find({ batchCode: req.params.code, branchName: req.params.branch })
+    Class.find({ batchCode: req.params.code })
         .populate('studentList')
         .exec(function (err, studs) {
             if (err) {

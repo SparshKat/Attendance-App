@@ -2,6 +2,7 @@ var express = require('express'),
     bodyParser = require('body-parser'),
     mongoose = require('mongoose'),
     methodOverride = require("method-override"),
+    cool = require('cool-ascii-faces'),
     port = process.env.PORT || 8080,
     mongoURL = 
     // 'mongodb://localhost:27017/AttendanceApp',
@@ -44,7 +45,9 @@ app.use(function (req, res, next) {
 
 app.get('/', (req, res) => {
     res.json({ message: 'hooray! welcome to our api!' });
-});
+}); 
+
+app.get('/cool', (req, res) => res.send(cool()))
 
 app.use(passport.initialize())
 app.use(passport.session())
